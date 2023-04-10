@@ -87,7 +87,9 @@ class TickerAnalysis:
 
 if __name__ == "__main__":
 
-    # python main.py BTCUSDT SMA AI EMA WMA MACD KST KAMA PPO RSI ROC ADI CMF FI ATR BB
+    # Пример ввода из консоли:
+    # python main.py BTCUSDT SMA AI EMA WMA MACD
+    
     args = sys.argv
     ticker = args[1]
     indicators = list(args[2:])
