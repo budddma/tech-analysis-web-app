@@ -1,0 +1,4 @@
+datatest==0.11.1
+pandas==1.5.2
+pytest==7.2.0
+streamlit
