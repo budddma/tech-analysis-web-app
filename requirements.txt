@@ -1,4 +1,7 @@
-datatest==0.11.1
-pandas==1.5.2
-pytest==7.2.0
+
+pandas
+ta
+plotly==5.14.1
 streamlit
+datatest==0.11.1
+pytest==7.2.0
