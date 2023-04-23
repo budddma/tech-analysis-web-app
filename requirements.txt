@@ -1,4 +1,4 @@
-
+requests
 pandas
 ta
 plotly==5.14.1
