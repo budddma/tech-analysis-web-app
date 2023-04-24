@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```sh
 streamlit run main.py
 ```
-3) запуску тестов
+3) запуску тестов:
 ```sh
 py.test -v tests/indicator_tests.py
 ```
