@@ -1,8 +1,6 @@
 requests
 pandas
-ta
+pandas_ta
 plotly==5.14.1
 streamlit
-numpy
-datatest==0.11.1
-pytest==7.2.0
+pytest
