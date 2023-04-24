@@ -2,7 +2,7 @@
 
 <div style="text-align: center;">
 
-![Пример](image.png)
+![Пример](images/chart_example.png)
 
 </div>
 
