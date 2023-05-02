@@ -4,3 +4,5 @@ pandas_ta
 plotly==5.14.1
 streamlit
 pytest
+sys
+os
