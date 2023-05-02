@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```
 * запуску веб-приложения:
 ```sh
-streamlit run main.py
+streamlit run src/main.py
 ```
 * прогону тестов:
 ```sh
