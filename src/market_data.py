@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-import top_indicators
 import pandas_ta as ta
 import plotly.graph_objects as go
 import streamlit as st
@@ -64,11 +63,11 @@ class MarketData:
     def init_indicators_df(self, indicators):
         ind_df = pd.DataFrame()
         ind_dict = {
-            'SMA': top_indicators.sma,  # close
-            'EMA': top_indicators.ema,  # close
-            'RSI': top_indicators.rsi,  # close
-            'SO': top_indicators.stoch,  # high low close
-            'MACD': top_indicators.macd,  # close
+            'SMA': indicators.sma,  # close
+            'EMA': indicators.ema,  # close
+            'RSI': indicators.rsi,  # close
+            'SO': indicators.stoch,  # high low close
+            'MACD': indicators.macd,  # close
             'WMA': ta.wma,  # close
             'KST': ta.kst,  # close
             'KAMA': ta.kama,  # close
