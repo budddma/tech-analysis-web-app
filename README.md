@@ -40,5 +40,5 @@ streamlit run src/main.py
 ```
 * прогону тестов:
 ```sh
-py.test -v tests/indicator_tests.py
+pytest -v tests/indicator_tests.py
 ```
