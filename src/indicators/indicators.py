@@ -8,8 +8,10 @@ def sma(close, length=10):
 def ema(close, length=10):
     close_copy = close.copy()
     sma_nth = close_copy[0:length].mean()
+
     close_copy[:length - 1] = 'nan'
     close_copy.iloc[length - 1] = sma_nth
+
     return close_copy.ewm(span=length, adjust=False).mean()
 
 
