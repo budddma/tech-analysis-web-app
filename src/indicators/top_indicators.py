@@ -9,7 +9,7 @@ def ema(close, length=10):
     close_copy = close.copy()
     sma_nth = close_copy[0:length].mean()
 
-    close_copy[:length - 1] = 'nan'
+    close_copy[: length - 1] = "nan"
     close_copy.iloc[length - 1] = sma_nth
 
     return close_copy.ewm(span=length, adjust=False).mean()
@@ -34,10 +34,10 @@ def stoch(high, low, close, k=14, d=3):
 
     stoch = 100 * (close - lowest_low) / (highest_high - lowest_low)
 
-    stoch_k = sma(stoch.loc[stoch.first_valid_index():, ], length=d)
-    stoch_d = sma(stoch_k.loc[stoch_k.first_valid_index():, ], length=d)
+    stoch_k = sma(stoch.loc[stoch.first_valid_index() :,], length=d)
+    stoch_d = sma(stoch_k.loc[stoch_k.first_valid_index() :,], length=d)
 
-    return pd.DataFrame({'STOCHk_14_3_3': stoch_k, 'STOCHd_14_3_3': stoch_d})
+    return pd.DataFrame({"STOCHk_14_3_3": stoch_k, "STOCHd_14_3_3": stoch_d})
 
 
 def macd(close, fast=12, slow=26, signal=9):
@@ -45,7 +45,15 @@ def macd(close, fast=12, slow=26, signal=9):
     slow_ema = ema(close, length=slow)
 
     macd_line = fast_ema - slow_ema
-    signal_ema = ema(close=macd_line.loc[macd_line.first_valid_index():, ], length=signal)
+    signal_ema = ema(
+        close=macd_line.loc[macd_line.first_valid_index() :,], length=signal
+    )
     histogram = macd_line - signal_ema
 
-    return pd.DataFrame({'MACD_12_26_9': macd_line, 'MACDh_12_26_9': histogram, 'MACDs_12_26_9': signal_ema})
+    return pd.DataFrame(
+        {
+            "MACD_12_26_9": macd_line,
+            "MACDh_12_26_9": histogram,
+            "MACDs_12_26_9": signal_ema,
+        }
+    )
