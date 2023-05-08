@@ -177,12 +177,12 @@ class MarketData:
         for key, value in figures.items():
             if key == "candlestick":
                 value.update_layout(
-                    title_text=f"{self.__pair[0]} / {self.__pair[1]}",
+                    title_text=f"Цена {self.__pair[0]} / {self.__pair[1]}",
                     title_font_size=25,
                 )
                 if len(str_indicators["candlestick"]):
                     value.update_layout(
-                        title_text=f"{self.__pair[0]} / {self.__pair[1]} и {str_indicators[key]}"
+                        title_text=f"Цена {self.__pair[0]} / {self.__pair[1]} и {str_indicators[key]}"
                     )
 
             elif len(value.data):
