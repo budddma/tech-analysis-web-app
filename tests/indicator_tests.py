@@ -1,42 +1,47 @@
-import top_indicators as ti
-from class_ta import TechAnalysis
+from src.market_data import MarketData
+from src.indicators.top_indicators import sma, ema, rsi, stoch, macd
 import pandas as pd
 import pandas_ta as ta
 import pytest
 
 
 @pytest.fixture
-def test_data():
-    test = TechAnalysis('BTCUSDT')
-    test.init_candle_df('1d')
-    return test.get_candle_df()
+def test_df():
+    test_data = MarketData(("BTC", "USDT"))
+    test_data.init_candle_df("1d")
+    return test_data.get_candle_df()
 
-def test_sma(test_data):
-    close = test_data['close']
+
+def test_sma(test_df):
+    close = test_df["close"]
     expected_output = ta.sma(close)
-    output = ti.sma(close)
+    output = sma(close)
     pd.testing.assert_series_equal(output, expected_output, check_names=False)
 
-def test_ema(test_data):
-    close = test_data['close']
+
+def test_ema(test_df):
+    close = test_df["close"]
     expected_output = ta.ema(close)
-    output = ti.ema(close)
+    output = ema(close)
     pd.testing.assert_series_equal(output, expected_output, check_names=False)
 
-def test_rsi(test_data):
-    close = test_data['close']
+
+def test_rsi(test_df):
+    close = test_df["close"]
     expected_output = ta.rsi(close)
-    output = ti.rsi(close)
+    output = rsi(close)
     pd.testing.assert_series_equal(output, expected_output, check_names=False)
 
-def test_stoch(test_data):
-    high, low, close = test_data['high'], test_data['low'], test_data['close']
+
+def test_stoch(test_df):
+    high, low, close = test_df["high"], test_df["low"], test_df["close"]
     expected_output = ta.stoch(high, low, close)
-    output = ti.stoch(high, low, close)
+    output = stoch(high, low, close)
     pd.testing.assert_frame_equal(output, expected_output, check_names=False)
 
-def test_macd(test_data):
-    close = test_data['close']
+
+def test_macd(test_df):
+    close = test_df["close"]
     expected_output = ta.macd(close)
-    output = ti.macd(close)
+    output = macd(close)
     pd.testing.assert_frame_equal(output, expected_output, check_names=False)
