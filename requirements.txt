@@ -1,0 +1,6 @@
+requests
+pandas
+pandas_ta==0.3.14b0
+plotly==5.14.1
+streamlit==1.21.0
+pytest
