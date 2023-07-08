@@ -1,5 +1,3 @@
-# Приложение для технического анализа криптовалют
-
 <div style="text-align: center;">
 
 ![Пример](images/example.png)
